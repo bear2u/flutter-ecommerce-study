@@ -33,6 +33,7 @@
 3. Node
 4. Docker
 4. 노트북
+5. Postman
 
 ### 공부할 내용
 
