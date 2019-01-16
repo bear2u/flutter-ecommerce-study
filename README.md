@@ -83,4 +83,17 @@
 
 - [부산 개발자 ](https://cafe.naver.com/busandev)
 
+
+### docker
+
+```
+docker-compose up --build
+
+//start
+docker-compose up
+
+docker-compose down
+docker-compose stop
+```
+
   
