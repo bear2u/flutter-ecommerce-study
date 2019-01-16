@@ -31,6 +31,7 @@
 1. Flutter SDK
 2. Android Studio 또는 VSCODE
 3. Node
+4. Docker
 4. 노트북
 
 ### 공부할 내용
