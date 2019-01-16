@@ -1,0 +1,63 @@
+version: "3"
+services:
+  app:             
+    # ports:
+    #   - "3000:3000"      
+    links:
+      - mongo
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    # command: nodemon --debug=5858
+    volumes:
+      - ./server/:/app
+      # - /d/workspace_company:/app
+      - /app/node_modules                      
+    networks:
+      - backend  
+    depends_on:  
+      - redis
+      - mongo
+  redis:
+    container_name: app-redis
+    image: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - backend 
+    volumes:
+      - data:/data/redis   
+    ports:
+      - "6379:6379"
+    restart: always    
+  mongo:
+    container_name: app-mongo
+    image: mongo
+    volumes:
+      - data:/data/db
+    ports:
+      - "27017:27017" 
+    networks:
+      - backend
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx 
+    ports:
+      - '3050:80' 
+    networks:
+      - backend
+    links:
+      - app  
+    depends_on:
+      - app  
+
+networks: 
+  backend:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local   
