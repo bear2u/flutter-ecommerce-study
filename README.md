@@ -1,5 +1,9 @@
 # 부산  Flutter 쇼핑몰 프로젝트 스터디
 
+## 리딩자
+
+- 수지아빠 ( GDG 부산 운영자 )
+
 ## 목차
 
 - 목표
@@ -75,6 +79,6 @@
 
 - [rxmarbles](http://rxmarbles.com/)
 
-- 
+- [부산 개발자 ](https://cafe.naver.com/busandev)
 
   
