@@ -13,6 +13,7 @@
 - 공부할 내용
 - 체크 리스트
 - 추천 사이트
+- 서버 
 
 ### 목표
 
@@ -83,8 +84,11 @@
 
 - [부산 개발자 ](https://cafe.naver.com/busandev)
 
+- [docker 정리](http://javaexpert.tistory.com/category/%EC%8A%A4%ED%84%B0%EB%94%94/Docker%20%26%20Kubernates)
 
-### docker
+### 서버안내
+
+#### docker
 
 ```
 docker-compose up --build
@@ -96,4 +100,13 @@ docker-compose down
 docker-compose stop
 ```
 
+### API
+
+```
+get http://localhost:3050/api/todos/
+
+post http://localhost:3050/api/todos/
+
+content,title,isdone
+```
   
