@@ -38,7 +38,7 @@ class TodoBloc {
   submit() {
     print(' title : ${_title.value}, content: ${_content.value}');
     List<TodoModel> list = List()
-      ..addAll(_item.value);
+      ..addAll(_item.value ?? []);
     list.add(TodoModel(title: _title.value, content: _content.value));
     print(_item.value);
     addItem(list);
