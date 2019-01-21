@@ -1,9 +1,10 @@
 import 'dart:async';
-import 'package:flutter_app/todo_model.dart';
+import 'package:flutter_app/model/todo_model.dart';
+import 'package:flutter_app/repository/repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class TodoBloc {
-
+  final _repository = Repository();
   //input
   final _item = BehaviorSubject<List<TodoModel>>();
   final _title = BehaviorSubject<String>();
@@ -36,12 +37,14 @@ class TodoBloc {
   }
 
   submit() {
-    print(' title : ${_title.value}, content: ${_content.value}');
-    List<TodoModel> list = List()
-      ..addAll(_item.value ?? []);
-    list.add(TodoModel(title: _title.value, content: _content.value));
-    print(_item.value);
-    addItem(list);
+
+    final fAdd = _repository.addTodo(TodoModel(title: _title.value, content: _content.value));
+
+    fAdd
+      .listen((result) {
+        print(result);
+      });
+
   }
 
   dispose(){

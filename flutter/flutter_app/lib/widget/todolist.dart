@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/blc/todo_bloc.dart';
-import 'package:flutter_app/blc/todo_provider.dart';
-import 'package:flutter_app/todo_model.dart';
+import 'package:flutter_app/bloc/todo_bloc.dart';
+import 'package:flutter_app/bloc/todo_provider.dart';
+import 'package:flutter_app/model/todo_model.dart';
 
 class TodoList extends StatelessWidget {
   @override

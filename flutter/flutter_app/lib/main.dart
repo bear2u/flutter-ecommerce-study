@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/blc/todo_provider.dart';
-import 'package:flutter_app/todolist.dart';
-import 'package:flutter_app/write.dart';
+import 'package:flutter_app/bloc/todo_provider.dart';
+import 'package:flutter_app/widget/todolist.dart';
+import 'package:flutter_app/widget/write.dart';
 
 void main() => runApp(TodoProvider(child: MyApp()));
 

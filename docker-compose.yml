@@ -19,7 +19,7 @@ services:
       - redis
       - mongo
   redis:
-    container_name: app-redis
+    container_name: todoapp-redis
     image: redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
@@ -31,7 +31,7 @@ services:
       - "6379:6379"
     restart: always    
   mongo:
-    container_name: app-mongo
+    container_name: todoapp-mongo
     image: mongo
     volumes:
       - data:/data/db
