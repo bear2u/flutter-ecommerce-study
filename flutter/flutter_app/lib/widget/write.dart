@@ -22,13 +22,13 @@ class Write extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         TextField(
-          onChanged: bloc.title,
+          onChanged: bloc.emitTitle,
           decoration: InputDecoration(
             labelText: '타이틀을 입력해주세요'
           ),
         ),
         TextField(
-          onChanged: bloc.content,
+          onChanged: bloc.emitContent,
           decoration: InputDecoration(
               labelText: '내용을 입력해주세요'
           ),
@@ -38,6 +38,7 @@ class Write extends StatelessWidget {
           builder: (context, AsyncSnapshot<bool> snapshot) {
             Function f = () {
               bloc.submit();
+              Navigator.of(context).pop();
             };
 
             if(snapshot.data == null || !snapshot.data) {

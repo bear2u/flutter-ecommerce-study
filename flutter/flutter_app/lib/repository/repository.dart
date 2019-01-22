@@ -11,8 +11,9 @@ class Repository {
     return Observable.fromFuture(sources[0].addTodo(todoModel));
   }
 
-  fetchTodos() {
-    return sources[0].fetchTodos();
+  Stream<List<TodoModel>> fetchTodos() {
+    final result = sources[0].fetchTodos();
+    return Observable.fromFuture(result);
   }
 }
 

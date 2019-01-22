@@ -7,6 +7,7 @@ part 'todo_model.g.dart';
   includeIfNull: false
 )
 class TodoModel {
+  @JsonKey(name: "_id")
   String id;
   String title;
   String content;
@@ -19,4 +20,11 @@ class TodoModel {
       _$TodoModelFromJson(json);
 
   Map<String, dynamic> toMap() => _$TodoModelToJson(this);
+
+  @override
+  String toString() {
+    return 'TodoModel{id: $id, title: $title, content: $content}';
+  }
+
+
 }

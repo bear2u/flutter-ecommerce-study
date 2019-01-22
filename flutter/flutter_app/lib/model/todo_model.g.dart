@@ -9,7 +9,7 @@ part of 'todo_model.dart';
 TodoModel _$TodoModelFromJson(Map<String, dynamic> json) {
   return TodoModel(
       title: json['title'] as String, content: json['content'] as String)
-    ..id = json['id'] as String;
+    ..id = json['_id'] as String;
 }
 
 Map<String, dynamic> _$TodoModelToJson(TodoModel instance) {
@@ -21,7 +21,7 @@ Map<String, dynamic> _$TodoModelToJson(TodoModel instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
+  writeNotNull('_id', instance.id);
   writeNotNull('title', instance.title);
   writeNotNull('content', instance.content);
   return val;

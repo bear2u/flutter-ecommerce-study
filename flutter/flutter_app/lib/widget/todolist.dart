@@ -6,14 +6,14 @@ import 'package:flutter_app/model/todo_model.dart';
 class TodoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     TodoBloc bloc = TodoProvider.of(context);
+    bloc.fetchTodos();
 
     return Scaffold(
       appBar: AppBar(
         title: Text('TodoList'),
       ),
-      body: _buildListWidget(),
+      body: _ListWidget(),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
@@ -24,13 +24,13 @@ class TodoList extends StatelessWidget {
   }
 }
 
-class _buildListWidget extends StatelessWidget{
+class _ListWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     TodoBloc bloc = TodoProvider.of(context);
 
     return StreamBuilder(
-      stream: bloc.item,
+      stream: bloc.todos,
       builder: (context, AsyncSnapshot<List<TodoModel>> snapshot) {
 
         print('snapshot : $snapshot');

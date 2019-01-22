@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bloc/todo_bloc.dart';
 
+
 class TodoProvider extends InheritedWidget {
-  TodoBloc bloc = TodoBloc();
+  final TodoBloc bloc = TodoBloc();
 
   TodoProvider({Key key, Widget child}) : super(key: key, child: child);
 
