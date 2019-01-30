@@ -6,12 +6,14 @@ import 'package:http/http.dart' as http;
 
 class Api implements Source{
 
-  final url = 'http://192.168.99.100:3050/api';
+  final url = 'http://192.168.0.3:3050/api';
 
   @override
   addTodo(TodoModel todoModel) async {
     http.Response response = await http.post(url + "/todos",
-      body: todoModel.toMap(),
+      body: json.encode(todoModel.toMap()), headers: {
+          "content-type": "application/json"
+        }
     ).timeout(Duration(seconds: 3));
 
     print(response.body);
@@ -31,11 +33,15 @@ class Api implements Source{
     http.Response response = await http.get(url + "/todos",
     ).timeout(Duration(seconds: 3));
 
-    print(response.body);
+    print(response.statusCode);
 
     final parsedJson = json.decode(response.body);
 
-    List<TodoModel> items = parsedJson['items']?.map((js) => TodoModel.fromJson(js))?.toList()?.cast<TodoModel>();
+    List<TodoModel> items = parsedJson['items']
+    //List
+        ?.map((js) => TodoModel.fromJson(js) )
+        ?.toList()
+        ?.cast<TodoModel>();
 
     return items;
   }
