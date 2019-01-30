@@ -1,10 +1,10 @@
 version: "3"
 services:
-  app:             
+  ecomerce-app:             
     # ports:
     #   - "3000:3000"      
     links:
-      - mongo
+      - ecomerce-mongo
     build:
       dockerfile: Dockerfile.dev
       context: ./server
@@ -16,9 +16,9 @@ services:
     networks:
       - backend  
     depends_on:  
-      - redis
-      - mongo
-  redis:
+      - ecomerce-redis
+      - ecomerce-mongo
+  ecomerce-redis:
     container_name: todoapp-redis
     image: redis
     environment:
@@ -30,7 +30,7 @@ services:
     ports:
       - "6379:6379"
     restart: always    
-  mongo:
+  ecomerce-mongo:
     container_name: todoapp-mongo
     image: mongo
     volumes:
@@ -40,19 +40,19 @@ services:
     networks:
       - backend
 
-  nginx:
+  ecomerce-nginx:
     restart: always
     build:
       dockerfile: Dockerfile.dev
       context: ./nginx 
     ports:
-      - '3050:80' 
+      - '4000:80' 
     networks:
       - backend
     links:
-      - app  
+      - ecomerce-app  
     depends_on:
-      - app  
+      - ecomerce-app  
 
 networks: 
   backend:
